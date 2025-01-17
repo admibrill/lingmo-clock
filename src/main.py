@@ -1,14 +1,21 @@
-from PySide6.QtWidgets import (QApplication,QWidget,QPushButton,QGroupBox,QLabel,
-                                QTableWidget,QTableWidgetItem,QProgressBar,QScrollArea,
-                                QDialog,QGridLayout,QVBoxLayout,QHBoxLayout,QSpinBox,QLineEdit,QComboBox,QSystemTrayIcon,QCheckBox)
-from PySide6.QtGui import QIcon,QFont
-from PySide6.QtCore import QObject,QTimer,Qt,QSize
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+from PySide6.QtCore import *
 import time
 qapp=QApplication([])
 icon=QIcon('../media/images/1.png')
 widgetslist=[]
 musicUrlList=['../media/audio/1.wav']
 musicNameList=['音乐1']
+a=QDockWidget()
+a.setWindowIcon(icon)
+try:
+    from ctypes import windll  
+    myappid = 'mycompany.myproduct.subproduct.version'
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
+
 class Window(QWidget):
     def __init__(self,width,height,title,icon):
         super().__init__()
